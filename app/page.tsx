@@ -111,10 +111,10 @@ export default function Home() {
             <Reveal>
               <div className="relative mx-auto max-w-xs lg:max-w-none">
                 <Image
-                  src="/work/art-spectrum-gaze.webp"
-                  alt="Spectrum Gaze — abstract portrait painting by Abraham Gbadamosi"
-                  width={1024}
-                  height={1536}
+                  src="/work/profile.webp"
+                  alt="Portrait of Abraham Gbadamosi"
+                  width={634}
+                  height={900}
                   sizes="(max-width: 1024px) 80vw, 35vw"
                   className="w-full border border-line"
                 />

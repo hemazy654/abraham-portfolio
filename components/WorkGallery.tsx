@@ -169,6 +169,7 @@ export default function WorkGallery() {
                 width={w.width}
                 height={w.height}
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                quality={60}
                 className="h-auto w-full"
               />
             </div>
