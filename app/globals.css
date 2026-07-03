@@ -1,26 +1,172 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ink: #0e0e10;
+  --panel: #151518;
+  --line: #26262b;
+  --bone: #ede9e1;
+  --dim: #8f8c85;
+  --magenta: #d9418c;
+  --cyan: #35b5bd;
+  --amber: #e8a33d;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ink: var(--ink);
+  --color-panel: var(--panel);
+  --color-line: var(--line);
+  --color-bone: var(--bone);
+  --color-dim: var(--dim);
+  --color-magenta: var(--magenta);
+  --color-cyan: var(--cyan);
+  --color-amber: var(--amber);
+  --font-display: var(--font-anton);
+  --font-sans: var(--font-archivo);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: clip;
+  background: var(--ink);
+  color: var(--bone);
+  font-family: var(--font-archivo), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  cursor: url("/cursors/brush.png") 2 2, auto;
+}
+
+/* Clickable things get the paint-dipped brush */
+a,
+button,
+[role="button"] {
+  cursor: url("/cursors/brush-dip.png") 2 2, pointer;
+}
+
+::selection {
+  background: var(--magenta);
+  color: var(--ink);
+}
+
+/* Tri-color paint spectrum — the one place color lives outside the artwork */
+.spectrum-text {
+  background: linear-gradient(
+    100deg,
+    var(--magenta) 0%,
+    var(--amber) 52%,
+    var(--cyan) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Shared brush-stroke mask: ragged edges, dry-brush gaps, tapered tail */
+:root {
+  --brush-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 14' preserveAspectRatio='none'%3E%3Cpath d='M2 8 C10 3 22 4 34 5.5 C46 7 55 3.5 68 5 C80 6.5 92 4 103 5 C110 5.6 115 5 118 5.5 L117 8.5 C110 10.5 100 9 88 10 C76 11 66 8.5 54 10 C42 11.5 30 9.5 20 10.5 C12 11.2 6 10.5 2.5 10.2 Z' fill='black'/%3E%3Ccircle cx='7' cy='4.2' r='0.9' fill='black'/%3E%3Ccircle cx='114' cy='9.8' r='0.7' fill='black'/%3E%3Cellipse cx='30' cy='6.2' rx='1.4' ry='0.5' fill='black'/%3E%3Cellipse cx='95' cy='8.4' rx='1.2' ry='0.45' fill='black'/%3E%3C/svg%3E");
+}
+
+/* A painted stroke of spectrum color, shaped by the brush mask */
+.spectrum-stroke {
+  background: linear-gradient(90deg, var(--magenta), var(--amber), var(--cyan));
+  -webkit-mask: var(--brush-mask) center / 100% 100% no-repeat;
+  mask: var(--brush-mask) center / 100% 100% no-repeat;
+  transform: rotate(-1.2deg);
+}
+
+/* Nav links: brush-stroke underline painted on hover */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  height: 6px;
+  background: linear-gradient(90deg, var(--magenta), var(--amber), var(--cyan));
+  -webkit-mask: var(--brush-mask) center / 100% 100% no-repeat;
+  mask: var(--brush-mask) center / 100% 100% no-repeat;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Eyebrow labels */
+.eyebrow {
+  font-size: 0.6875rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Marquee */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 32s linear infinite;
+}
+
+/* Work card hover */
+.work-card img {
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (hover: hover) {
+  .work-card:hover img {
+    transform: scale(1.04);
+  }
+}
+
+/* Visible keyboard focus */
+:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .marquee-track {
+    animation: none;
+  }
+  .work-card img {
+    transition: none;
+  }
 }
