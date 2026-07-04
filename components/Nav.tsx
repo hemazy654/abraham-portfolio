@@ -54,7 +54,9 @@ export default function Nav() {
           ))}
         </ul>
         <a
-          href={`mailto:${contact.email}`}
+          href={contact.whatsapp}
+          target="_blank"
+          rel="noopener noreferrer"
           className="border border-line px-4 py-2 text-xs uppercase tracking-[0.18em] text-bone transition-colors hover:border-bone"
         >
           Hire me

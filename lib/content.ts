@@ -555,5 +555,7 @@ export const contact = {
   email: "ocenstarartworks@gmail.com",
   phone: "+234 810 919 0621",
   phoneHref: "tel:+2348109190621",
+  whatsapp:
+    "https://wa.me/2348109190621?text=Hello%20Abraham!%20I%20saw%20your%20portfolio%20and%20I%27d%20like%20to%20work%20with%20you.",
   location: "Lagos, Nigeria",
 };
