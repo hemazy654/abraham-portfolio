@@ -8,6 +8,7 @@ export interface WorkItem {
   src: string;
   width: number;
   height: number;
+  video?: boolean;
 }
 
 export const works: WorkItem[] = [
@@ -57,6 +58,33 @@ export const works: WorkItem[] = [
     height: 1080,
   },
   {
+    slug: "abcy2-lineup",
+    title: "A Brand Called You 2.0",
+    context: "Second-edition seminar — speaker lineup",
+    category: "client",
+    src: "/work/work-abcy2-lineup.webp",
+    width: 864,
+    height: 1080,
+  },
+  {
+    slug: "cyberbully-kit",
+    title: "#SayNoToCyberbullying",
+    context: "Campaign identity & merch kit",
+    category: "client",
+    src: "/work/work-cyberbully-kit.webp",
+    width: 960,
+    height: 960,
+  },
+  {
+    slug: "caravan",
+    title: "Caravan",
+    context: "Digital pattern artwork",
+    category: "artwork",
+    src: "/work/art-caravan.webp",
+    width: 720,
+    height: 812,
+  },
+  {
     slug: "jester-i",
     title: "The Jester — I",
     context: "Costume, makeup & photo direction",
@@ -102,6 +130,34 @@ export const works: WorkItem[] = [
     height: 800,
   },
   {
+    slug: "innovation-fest-3",
+    title: "Innovation Fest 3.0",
+    context: "'The Lens with the Mic' — speaker flyer",
+    category: "client",
+    src: "/work/work-innovation-fest-3.webp",
+    width: 720,
+    height: 870,
+  },
+  {
+    slug: "reel-ii",
+    title: "Motion Reel",
+    context: "Video design & editing",
+    category: "client",
+    src: "/work/reel-ii.mp4",
+    width: 720,
+    height: 1280,
+    video: true,
+  },
+  {
+    slug: "ascom-awards",
+    title: "ASCOM Dinner & Awards",
+    context: "ASCOM 2025 — gala night flyer",
+    category: "client",
+    src: "/work/work-ascom-awards.webp",
+    width: 720,
+    height: 727,
+  },
+  {
     slug: "jester-ii",
     title: "The Jester — II",
     context: "Rain study — photo direction",
@@ -136,6 +192,33 @@ export const works: WorkItem[] = [
     src: "/work/art-city-mosaic.webp",
     width: 715,
     height: 1200,
+  },
+  {
+    slug: "face-of-cocoms",
+    title: "Face of COCOMS 2026",
+    context: "Auditions flyer",
+    category: "client",
+    src: "/work/work-face-of-cocoms.webp",
+    width: 864,
+    height: 1080,
+  },
+  {
+    slug: "rider",
+    title: "Rider at Low Tide",
+    context: "Photography",
+    category: "artwork",
+    src: "/work/art-rider.webp",
+    width: 689,
+    height: 954,
+  },
+  {
+    slug: "ojude-style-guide",
+    title: "Ojudé COCOMS — Style Guide",
+    context: "300LVL colour & style direction",
+    category: "client",
+    src: "/work/work-ojude-style-guide.webp",
+    width: 557,
+    height: 375,
   },
   {
     slug: "underneath-rose",
@@ -174,6 +257,24 @@ export const works: WorkItem[] = [
     height: 800,
   },
   {
+    slug: "save-a-child",
+    title: "Save a Child",
+    context: "PRAD students' outreach campaign",
+    category: "client",
+    src: "/work/work-save-a-child.webp",
+    width: 810,
+    height: 1080,
+  },
+  {
+    slug: "ascom-tee",
+    title: "ASCOM Wordmark",
+    context: "Logo & merch design",
+    category: "client",
+    src: "/work/work-ascom-tee.webp",
+    width: 720,
+    height: 860,
+  },
+  {
     slug: "jester-iii",
     title: "The Jester — III",
     context: "Fire study — photo direction",
@@ -208,6 +309,34 @@ export const works: WorkItem[] = [
     src: "/work/work-ioni-cakes.webp",
     width: 800,
     height: 640,
+  },
+  {
+    slug: "make-me-author",
+    title: "Make Me an Author 2.0",
+    context: "Writing contest flyer",
+    category: "client",
+    src: "/work/work-make-me-author.webp",
+    width: 864,
+    height: 1080,
+  },
+  {
+    slug: "cocis-trade-fair",
+    title: "COCIS Trade Fair",
+    context: "Campus market — event flyer",
+    category: "client",
+    src: "/work/work-cocis-trade-fair.webp",
+    width: 762,
+    height: 1080,
+  },
+  {
+    slug: "reel-i",
+    title: "Design in Motion",
+    context: "Video design & editing",
+    category: "client",
+    src: "/work/reel-i.mp4",
+    width: 640,
+    height: 360,
+    video: true,
   },
   {
     slug: "welcome-march",
@@ -262,6 +391,120 @@ export const works: WorkItem[] = [
     src: "/work/work-giants-logo.webp",
     width: 513,
     height: 486,
+  },
+  {
+    slug: "abcy2-identity",
+    title: "Own Your Identity",
+    context: "A Brand Called You 2.0 — event identity",
+    category: "client",
+    src: "/work/work-abcy2-identity.webp",
+    width: 386,
+    height: 315,
+  },
+  {
+    slug: "spawn-logo",
+    title: "Spawn",
+    context: "Wordmark concept",
+    category: "client",
+    src: "/work/work-spawn-logo.webp",
+    width: 500,
+    height: 500,
+  },
+  {
+    slug: "freshers-banner",
+    title: "Freshers' Week 2026",
+    context: "SRC — large-format event banner",
+    category: "client",
+    src: "/work/work-freshers-banner.webp",
+    width: 594,
+    height: 321,
+  },
+];
+
+export interface Project {
+  title: string;
+  role: string;
+  description: string;
+  deliverables: string;
+}
+
+export const projects: Project[] = [
+  {
+    title: "#SayNoToCyberbullying",
+    role: "Lead Graphics Designer",
+    description:
+      "Visual identity and promotional assets for a student-led campaign against cyberbullying — from logo and merch to the full social rollout.",
+    deliverables: "Campaign branding · social graphics · posters · merch",
+  },
+  {
+    title: "ASCOM 2025",
+    role: "Graphics Designer",
+    description:
+      "Official branding and promotional materials for the Association of Mass Communication Students, kept consistent across every platform.",
+    deliverables: "Event branding · social graphics · digital assets",
+  },
+  {
+    title: "Mass Art 3.0",
+    role: "Creative Designer",
+    description:
+      "Visual identity and promotional campaign celebrating artistic expression and driving student participation.",
+    deliverables: "Event branding · promo graphics · social content",
+  },
+  {
+    title: "Mass Art 4.0",
+    role: "Lead Brand Designer",
+    description:
+      "Led creative direction with a refreshed identity and a cohesive campaign that strengthened the event's brand presence.",
+    deliverables: "Brand identity · event graphics · marketing assets",
+  },
+  {
+    title: "Reflection 7.0",
+    role: "Graphics Designer",
+    description:
+      "Identity and promotional materials for a student creative community event celebrating collaboration and artistic expression.",
+    deliverables: "Event branding · posters · social graphics",
+  },
+  {
+    title: "PRAD Campaign — Taking the Lead",
+    role: "Brand & Campaign Designer",
+    description:
+      "Visual identity and communication materials with a consistent, impactful design system across all promotional channels.",
+    deliverables: "Campaign branding · social graphics · digital assets",
+  },
+  {
+    title: "A Brand Called You 1.0",
+    role: "Lead Graphics Designer",
+    description:
+      "Complete visual identity for an entrepreneurship and personal-branding event empowering students through innovation.",
+    deliverables: "Brand identity · event graphics · promo materials",
+  },
+  {
+    title: "Ojudé COCOMS 2026",
+    role: "Brand Designer",
+    description:
+      "Culturally inspired promotional designs blending traditional influences with contemporary style into a memorable identity.",
+    deliverables: "Event branding · promo graphics · style guides",
+  },
+  {
+    title: "Mass Comm Football Team",
+    role: "Creative Designer · 2024–2025",
+    description:
+      "Match-day posters, player announcements and fixture graphics that carried the team's visual identity through the season.",
+    deliverables: "Match posters · player graphics · digital content",
+  },
+  {
+    title: "A Brand Called You 2.0",
+    role: "Lead Brand Identity Designer",
+    description:
+      "Led creative direction for the second edition — a refined identity applied cohesively across print and digital.",
+    deliverables: "Brand identity · social campaigns · print",
+  },
+  {
+    title: "Freshers' Week 2026 — SRC",
+    role: "Banner Designer",
+    description:
+      "Bold large-format banner welcoming incoming students — a prominent centrepiece of the event's identity.",
+    deliverables: "Large-format event banner",
   },
 ];
 

@@ -3,7 +3,7 @@ import Nav from "@/components/Nav";
 import Marquee from "@/components/Marquee";
 import Reveal from "@/components/Reveal";
 import WorkGallery from "@/components/WorkGallery";
-import { contact, education, experience } from "@/lib/content";
+import { contact, education, experience, projects } from "@/lib/content";
 
 function SectionHeading({
   eyebrow,
@@ -200,6 +200,43 @@ export default function Home() {
               </p>
             </div>
           </Reveal>
+        </section>
+
+        {/* Selected projects */}
+        <section
+          id="projects"
+          className="scroll-mt-20 border-t border-line bg-panel"
+        >
+          <div className="mx-auto max-w-6xl px-5 py-24 sm:px-8">
+            <Reveal>
+              <SectionHeading eyebrow="Case studies" title="Selected projects" />
+            </Reveal>
+            <Reveal delay={80}>
+              <p className="-mt-6 mb-12 max-w-xl text-sm leading-relaxed text-dim">
+                Campus campaigns and event identities, each reaching 300+
+                students and driving engagement across Instagram, WhatsApp
+                &amp; TikTok.
+              </p>
+            </Reveal>
+            <div className="grid gap-x-10 gap-y-12 sm:grid-cols-2">
+              {projects.map((p, i) => (
+                <Reveal key={p.title} delay={(i % 2) * 80}>
+                  <article className="border-t border-line pt-6">
+                    <p className="eyebrow mb-3">
+                      {String(i + 1).padStart(2, "0")} — {p.role}
+                    </p>
+                    <h3 className="font-display text-2xl uppercase leading-none tracking-wide">
+                      {p.title}
+                    </h3>
+                    <p className="mt-4 text-sm leading-relaxed text-bone/90">
+                      {p.description}
+                    </p>
+                    <p className="mt-3 text-xs text-dim">{p.deliverables}</p>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
+          </div>
         </section>
 
         {/* Contact */}

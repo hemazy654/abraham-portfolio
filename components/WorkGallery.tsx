@@ -72,15 +72,25 @@ function Lightbox({
         onClick={(e) => e.stopPropagation()}
       >
         <div className="relative min-h-0 flex-1">
-          <Image
-            src={item.src}
-            alt={`${item.title} — ${item.context}`}
-            width={item.width}
-            height={item.height}
-            sizes="90vw"
-            className="max-h-[80vh] w-auto border border-line object-contain"
-            priority
-          />
+          {item.video ? (
+            <video
+              src={item.src}
+              controls
+              autoPlay
+              playsInline
+              className="max-h-[80vh] w-auto border border-line object-contain"
+            />
+          ) : (
+            <Image
+              src={item.src}
+              alt={`${item.title} — ${item.context}`}
+              width={item.width}
+              height={item.height}
+              sizes="90vw"
+              className="max-h-[80vh] w-auto border border-line object-contain"
+              priority
+            />
+          )}
         </div>
         <figcaption className="text-center">
           <span className="font-display text-lg uppercase tracking-wide">
@@ -162,16 +172,36 @@ export default function WorkGallery() {
             className="work-card group mb-5 block w-full break-inside-avoid text-left"
             aria-label={`View ${w.title} — ${w.context}`}
           >
-            <div className="overflow-hidden border border-line bg-panel">
-              <Image
-                src={w.src}
-                alt={`${w.title} — ${w.context}`}
-                width={w.width}
-                height={w.height}
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                quality={60}
-                className="h-auto w-full"
-              />
+            <div className="relative overflow-hidden border border-line bg-panel">
+              {w.video ? (
+                <>
+                  <video
+                    src={`${w.src}#t=0.1`}
+                    muted
+                    playsInline
+                    preload="metadata"
+                    className="h-auto w-full"
+                  />
+                  <span
+                    className="absolute inset-0 flex items-center justify-center"
+                    aria-hidden
+                  >
+                    <span className="flex h-14 w-14 items-center justify-center rounded-full bg-ink/70 pl-1 text-xl text-bone backdrop-blur-sm">
+                      ▶
+                    </span>
+                  </span>
+                </>
+              ) : (
+                <Image
+                  src={w.src}
+                  alt={`${w.title} — ${w.context}`}
+                  width={w.width}
+                  height={w.height}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  quality={60}
+                  className="h-auto w-full"
+                />
+              )}
             </div>
             <div className="flex items-baseline justify-between gap-3 pt-3">
               <div>
