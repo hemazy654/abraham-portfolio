@@ -212,7 +212,7 @@ export default function Home() {
               <SectionHeading eyebrow="Case studies" title="Selected projects" />
             </Reveal>
             <Reveal delay={80}>
-              <p className="-mt-6 mb-12 max-w-xl text-sm leading-relaxed text-dim">
+              <p className="-mt-6 mb-12 max-w-xl text-sm leading-relaxed text-bone">
                 Campus campaigns and event identities, each reaching 300+
                 students and driving engagement across Instagram, WhatsApp
                 &amp; TikTok.
@@ -222,16 +222,18 @@ export default function Home() {
               {projects.map((p, i) => (
                 <Reveal key={p.title} delay={(i % 2) * 80}>
                   <article className="border-t border-line pt-6">
-                    <p className="eyebrow mb-3">
+                    <p className="mb-3 text-[0.6875rem] uppercase tracking-[0.28em] text-bone/80">
                       {String(i + 1).padStart(2, "0")} — {p.role}
                     </p>
                     <h3 className="font-display text-2xl uppercase leading-none tracking-wide">
                       {p.title}
                     </h3>
-                    <p className="mt-4 text-sm leading-relaxed text-bone/90">
+                    <p className="mt-4 text-sm leading-relaxed text-bone">
                       {p.description}
                     </p>
-                    <p className="mt-3 text-xs text-dim">{p.deliverables}</p>
+                    <p className="mt-3 text-xs text-bone/80">
+                      {p.deliverables}
+                    </p>
                   </article>
                 </Reveal>
               ))}
