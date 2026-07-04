@@ -23,7 +23,9 @@ export default function Reveal({
           observer.disconnect();
         }
       },
-      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" },
+      // threshold 0: tall elements (e.g. the full gallery on mobile) can
+      // never reach a fractional visibility threshold, so fire on first pixel
+      { threshold: 0, rootMargin: "0px 0px -40px 0px" },
     );
     observer.observe(el);
     return () => observer.disconnect();
