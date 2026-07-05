@@ -305,6 +305,17 @@ export default function Home() {
           <p className="text-xs text-dim">
             Visual stories through simplicity, color &amp; imagination
           </p>
+          <p className="text-xs text-dim">
+            Built by{" "}
+            <a
+              href="https://09labs-portfolio-puce.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-bone/80 transition-colors hover:text-bone"
+            >
+              09labs
+            </a>
+          </p>
         </div>
       </footer>
     </div>
